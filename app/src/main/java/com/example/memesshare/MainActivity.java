@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://meme-api.herokuapp.com/gimme";
 
 // Request a string response from the provided URL.
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        queue.add(jsonObjectRequest);
+        MySingleton.getInstance(MainActivity.this).addToRequestQueue(jsonObjectRequest);
     }
     public void shareMeme(View view) {
         Intent intent = new Intent(Intent.ACTION_SEND); //Intent for sending link
